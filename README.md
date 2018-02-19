@@ -1,39 +1,42 @@
-# react-styled-flexboxgrid
+# react-emotion-flexboxgrid
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/LoicMahieu/react-styled-flexboxgrid.svg)](https://greenkeeper.io/)
-[![npm version](https://badge.fury.io/js/react-styled-flexboxgrid.svg)](https://badge.fury.io/js/react-styled-flexboxgrid)
-[![Build Status](https://travis-ci.org/LoicMahieu/react-styled-flexboxgrid.svg?branch=master)](https://travis-ci.org/LoicMahieu/react-styled-flexboxgrid)
-[![NPM Status](http://img.shields.io/npm/dm/react-styled-flexboxgrid.svg?style=flat-square)](https://www.npmjs.org/package/react-styled-flexboxgrid)
-[![js-standard-style](https://img.shields.io/badge/lint-standard-green.svg)](http://standardjs.com)
+[![Greenkeeper badge](https://badges.greenkeeper.io/SimeonC/react-emotion-flexboxgrid.svg)](https://greenkeeper.io/)
+[![npm version](https://badge.fury.io/js/react-emotion-flexboxgrid.svg)](https://badge.fury.io/js/react-styled-flexboxgrid)
+[![Build Status](https://travis-ci.org/SimeonC/react-emotion-flexboxgrid.svg?branch=master)](https://travis-ci.org/SimeonC/react-emotion-flexboxgrid)
+[![NPM Status](http://img.shields.io/npm/dm/react-emotion-flexboxgrid.svg?style=flat-square)](https://www.npmjs.org/package/react-emotion-flexboxgrid)
 
+This is a fork of [react-styled-flexboxgrid](https://github.com/LoicMahieu/react-styled-flexboxgrid) for emotion. 90% or so of this is his code, credit where it's due.
 
-Set of React components that implement [`flexboxgrid.css`](https://github.com/kristoferjoseph/flexboxgrid) but with [`styled-components`](https://github.com/styled-components/styled-components). Furthermore, it allows to customize grid configuration like gutter width...
+Set of React components that implement [`flexboxgrid.css`](https://github.com/kristoferjoseph/flexboxgrid) but with [`emotion`](https://github.com/emotion-js/emotion). Furthermore, it allows to customize grid configuration like gutter width...
 
 Highly inspired by the excellent [`react-flexbox-grid`](https://github.com/roylee0704/react-flexbox-grid) which the API is nearly the same than this module.
 
-[**Demo**](https://loicmahieu.github.io/react-styled-flexboxgrid/demo/index.html)
+[**Demo**](https://simeonc.github.io/react-emotion-flexboxgrid/)
 
 ## Usage
 
 ### Installation
 
 ```
-npm i -S react-styled-flexboxgrid
+npm i -S react-emotion-flexboxgrid
 ```
 
-`react-styled-flexboxgrid` depends on 2 **peer** dependencies:
-- `react@^0.14.0 || ^15.0.0-0 || ^16.0.0-0`
-- `prop-types@^15.0.0-0`
-- `styled-components@2`
+`react-emotion-flexboxgrid` depends on 2 **peer** dependencies:
 
-You should install them in your project.
+* `react@^0.14.0 || ^15.0.0-0 || ^16.0.0-0`
+* `prop-types@^15.0.0-0`
+* `react-emotion@^9`
+
+You should install them in your project. It's also highly recommended to use [emotion-theming](https://github.com/emotion-js/emotion/tree/master/packages/emotion-theming)
+
+Note on version numbers; we aim to match our "Major" version number with that of emotion.
 
 ### Basic
 
 ```JSX
 import React from 'react'
 
-import {Grid, Col, Row} from 'react-styled-flexboxgrid'
+import {Grid, Col, Row} from 'react-emotion-flexboxgrid'
 
 const App = props =>
   <Grid>
@@ -49,56 +52,53 @@ The `<Grid>` component is optional and can help to wrap children in a fixed/flui
 
 ##### Props
 
-- `fluid` _(Boolean)_: Create a responsive fixed width container or a full width container, spanning the entire width of your viewport. Default: false
-
+* `fluid` _(Boolean)_: Create a responsive fixed width container or a full width container, spanning the entire width of your viewport. Default: false
 
 ### Row
 
 ##### Props
 
-- `reverse` _(Boolean)_: Use `flex-direction: row-reverse`. Default: false
-- `start`
-- `center`
-- `end`
-- `top`
-- `middle`
-- `bottom`
-- `around`
-- `between`
-- `first`
-- `last` _(String(xs|sm|md|lg)_: Align elements to the start or end of row as well as the top, bottom, or center of a column.
-
+* `reverse` _(Boolean)_: Use `flex-direction: row-reverse`. Default: false
+* `start`
+* `center`
+* `end`
+* `top`
+* `middle`
+* `bottom`
+* `around`
+* `between`
+* `first`
+* `last` _(String(xs|sm|md|lg)_: Align elements to the start or end of row as well as the top, bottom, or center of a column.
 
 ### Col
 
 ##### Props
 
-- `reverse` _(Boolean)_: Use `flex-direction: column-reverse`. Default: false
-- `xs`
-- `sm`
-- `md`
-- `lg` _(Boolean|Integer)_:
+* `reverse` _(Boolean)_: Use `flex-direction: column-reverse`. Default: false
+* `xs`
+* `sm`
+* `md`
+* `lg` _(Boolean|Integer)_:
   * When `true`, enable auto sizing column.
   * When `false`, hide colomn for the breakpoint.
   * When `interger` value, it specify the column size on the grid. (1 to 12)
-- `xsOffset`
-- `smOffset`
-- `mdOffset`
-- `lgOffset` _(Integer)_: Offset the column.
-
+* `xsOffset`
+* `smOffset`
+* `mdOffset`
+* `lgOffset` _(Integer)_: Offset the column.
 
 ### Configuration
 
 The grid use same defaults than [`flexboxgrid.css`](https://github.com/kristoferjoseph/flexboxgrid).
 
-You can customize values using [`<ThemeProvider>`](https://github.com/styled-components/styled-components#theming) component from styled-components.
-`react-styled-flexboxgrid` will looks at the `flexboxgrid` property in the theme.
+You can customize values using [`<ThemeProvider>`](https://github.com/emotion-js/emotion/tree/master/packages/emotion-theming) component from emotion-theming.
+`react-emotion-flexboxgrid` will looks at the `flexboxgrid` property in the theme.
 
 ```JSX
 import React from 'react'
 
-import {ThemeProvider} from 'styled-components'
-import {Grid, Col, Row} from 'react-styled-flexboxgrid'
+import { ThemeProvider } from 'emotion-theming'
+import { Grid, Col, Row } from 'react-emotion-flexboxgrid'
 
 const theme = {
   flexboxgrid: {
@@ -133,8 +133,9 @@ const App = props =>
 
 ## Related projects
 
-- [styled-components](https://github.com/styled-components/styled-components)
-- [hedron](https://github.com/JSBros/hedron)
+* [react-styled-flexboxgrid](https://github.com/LoicMahieu/react-styled-flexboxgrid)
+* [emotion](https://github.com/emotion-js/emotion)
+* [hedron](https://github.com/JSBros/hedron)
 
 ## License
 

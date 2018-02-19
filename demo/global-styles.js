@@ -1,6 +1,6 @@
+import { injectGlobal } from 'emotion';
 
-import { injectGlobal } from 'styled-components'
-
+// eslint-disable-next-line
 injectGlobal`
   body {
     box-sizing: border-box;
@@ -21,4 +21,4 @@ injectGlobal`
   h1, h2, h3, h4, h5, h6 {
     color: #001A33;
   }
-`
+`;

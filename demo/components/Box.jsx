@@ -1,7 +1,6 @@
-
-import React from 'react'
-import styled from 'styled-components'
-import { Col } from '../../src/index'
+import React from 'react';
+import styled from 'react-emotion';
+import { Col } from '../../src/index';
 
 const boxContentStyles = {
   row: `
@@ -21,28 +20,29 @@ const boxContentStyles = {
   large: `
     height: 8rem;
   `
-}
+};
 const BoxContent = styled.div`
   position: relative;
   box-sizing: border-box;
   min-height: 1rem;
   margin-bottom: 0;
-  background: #007FFF;
-  border: 1px solid #FFF;
+  background: #007fff;
+  border: 1px solid #fff;
   border-radius: 2px;
   overflow: hidden;
   text-align: center;
   color: #fff;
-  ${p => boxContentStyles[p.type]}
-
-  @media only screen and (min-width: 48rem) {
-    ${p => ~['box', 'row', 'container', 'nested', 'large'].indexOf(p.type) && 'padding: 1rem'}
+  ${(p) => boxContentStyles[p.type]} @media only screen and (min-width: 48rem) {
+    ${(p) =>
+      ['box', 'row', 'container', 'nested', 'large'].indexOf(p.type) >= 0 &&
+      'padding: 1rem'};
   }
-`
+`;
 
-const Box = p =>
+const Box = (p) => (
   <Col {...p}>
     <BoxContent type={p.type}>{p.children}</BoxContent>
   </Col>
+);
 
-export default Box
+export default Box;

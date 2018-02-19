@@ -1,27 +1,27 @@
+import React from 'react';
+import styled from 'react-emotion';
+import { ThemeProvider } from 'emotion-theming';
 
-import React from 'react'
-import styled, { ThemeProvider } from 'styled-components'
-
-import { Grid, BASE_CONF } from '../../src/index'
-import Hero from './Hero'
-import Demo from './Demo'
-import ThemeConfigurator from './ThemeConfigurator'
+import { Grid, BASE_CONF } from '../../src/index';
+import Hero from './Hero';
+import Demo from './Demo';
+import ThemeConfigurator from './ThemeConfigurator';
 
 const WrapperGrid = styled(Grid)`
   max-width: 1200px;
   margin: 0 auto;
-`
+`;
 
 class App extends React.Component {
-  constructor () {
-    super()
+  constructor() {
+    super();
     this.state = {
       theme: BASE_CONF
-    }
+    };
   }
 
-  render () {
-    const setTheme = theme => this.setState({ theme })
+  render() {
+    const setTheme = (theme) => this.setState({ theme });
 
     return (
       <ThemeProvider theme={{ flexboxgrid: this.state.theme }}>
@@ -33,8 +33,8 @@ class App extends React.Component {
           </WrapperGrid>
         </article>
       </ThemeProvider>
-    )
+    );
   }
 }
 
-export default App
+export default App;
