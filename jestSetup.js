@@ -3,7 +3,7 @@
 
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import * as emotion from 'emotion';
+import * as emotion from '@emotion/core';
 import { createSerializer as createEmotionSerializer } from 'jest-emotion';
 import toBeType from 'jest-tobetype';
 import { createSerializer as createEnzymeSerializer } from 'enzyme-to-json';
