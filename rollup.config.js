@@ -4,7 +4,7 @@ import visualizer from 'rollup-plugin-visualizer';
 
 const globals = {
   react: 'React',
-  'react-emotion': 'styled',
+  '@emotion/styled': 'styled',
   'prop-types': 'PropTypes',
   'lodash.isinteger': '_.isInteger'
 };
@@ -18,7 +18,7 @@ const plugins = [
 
 const base = {
   input: 'src/index.js',
-  external: ['react', 'react-emotion', 'prop-types', 'lodash.isinteger'],
+  external: ['react', '@emotion/styled', 'prop-types', 'lodash.isinteger'],
   plugins
 };
 
